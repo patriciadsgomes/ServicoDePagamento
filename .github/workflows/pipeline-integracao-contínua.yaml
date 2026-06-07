@@ -14,7 +14,7 @@ on:
   # disparo agendado 
   # 1 - minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
 
   # disparo automático por push na branch main
   push:
