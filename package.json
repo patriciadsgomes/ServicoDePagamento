@@ -20,5 +20,8 @@
   "homepage": "https://github.com/patriciadsgomes/ServicoDePagamento#readme",
   "dependencies": {
     "mocha": "^11.7.5"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.4"
   }
 }

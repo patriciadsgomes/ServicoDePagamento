@@ -1,0 +1,57 @@
+# Pipeline com 3 tipos de disparo
+
+# nome da pipeline
+name: 'Pipeline com Três Disparadores'
+
+# gatilho manual = workflow_dispatch
+# gatilho agendado = schedule
+# gatilho automático por push
+
+on:
+  # disparo manual pelo GitHub
+  workflow_dispatch:
+
+  # disparo agendado 
+  # 1 - minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
+  schedule:
+    - cron: '*/5 * * * *'
+
+  # disparo automático por push na branch master
+  push:
+    branches:
+      - master
+
+
+#tarefas dentro da pipeline = jobs
+
+jobs:
+  #nome do job
+  unidade:
+    # maquina onde o job vai rodar
+    runs-on: ubuntu-latest
+
+    # passos do job
+    steps:
+      # clone do projeto
+      - uses: actions/checkout@v4
+
+      # instalção do node
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      # instalação das dependências
+      - name: Instalando dependências
+        run: npm install
+
+      - name: Executando testes
+        run: npm test
+
+      - name: Salvando relatório de testes unitários
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          path: ./mochawesome-report
+          name: Relatório de Testes Unitários
+
+
