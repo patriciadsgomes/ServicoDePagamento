@@ -44,7 +44,7 @@ jobs:
         run: npm install
 
       - name: Executando testes de unidade
-        run: npm run testes
+        run: npm test
 
       - name: Salvando relatório de testes unitários
         uses: actions/upload-artifact@v4
