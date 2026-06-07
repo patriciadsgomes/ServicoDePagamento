@@ -7,6 +7,7 @@ name: 'Pipeline com Três Disparadores'
 # gatilho agendado = schedule
 # gatilho automático por push
 
+
 on:
   # disparo manual pelo GitHub
   workflow_dispatch:
@@ -20,8 +21,6 @@ on:
   push:
     branches:
       - master
-
-
 
 #tarefas dentro da pipeline = jobs
 
