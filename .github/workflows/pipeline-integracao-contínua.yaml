@@ -44,7 +44,7 @@ jobs:
       - name: Instalando dependências
         run: npm install
 
-      - name: Executando testes
+      - name: Executando testes de unidade
         run: npm test
 
       - name: Salvando relatório de testes unitários
